@@ -1,0 +1,283 @@
+:root {
+  font-size: 62.5%;
+
+  --background: hsl(0, 0%, 0%);
+  --text-color: hsl(0, 0%, 100%);
+  --button: hsl(258, 73%, 62%);
+  --border: hsl(240, 6%, 17%);
+  --border-menu-mobile: hsl(240, 7%, 68%);
+  --text-color-menu-mobile: hsla(240, 9%, 89%, 0.7);
+
+  --nav-height: 9.5rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Manrope', sans-serif;
+}
+
+body {
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(var(--background), hsl(258, 73%, 8%));
+
+  overflow: overlay;
+}
+
+.wrapper {
+  width: min(40rem, 100%);
+  margin-inline: auto;
+}
+
+h1,
+h2 {
+  color: var(--text-color);
+}
+
+/* --------------NAVIGATION------------------- */
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: var(--nav-height);
+
+  border-bottom: 1px solid var(--border);
+  background-color: var(--background);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 1.6rem 3rem;
+}
+
+nav a {
+  color: var(--text-color);
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+nav .menuButton {
+  transform: translateY(-20%);
+}
+
+nav .menu,
+nav .closeButton {
+  position: fixed;
+}
+
+/* -----------MENU-EXPANDED---------------- */
+body.menuExpanded {
+  overflow: hidden;
+}
+.menu,
+.closeButton,
+body.menuExpanded .menuButton {
+  opacity: 0;
+  visibility: hidden;
+}
+
+body.menuExpanded > :not(nav) {
+  visibility: hidden;
+}
+
+body.menuExpanded .menu,
+body.menuExpanded .closeButton,
+body.menuExpanded .logo {
+  opacity: 100%;
+  visibility: visible;
+}
+
+.menu {
+  transform: translateY(100%);
+  transition: transform 300ms;
+}
+
+body.menuExpanded .menu {
+  width: 100vw;
+  height: 100vh;
+
+  top: 0;
+  left: 0;
+
+  padding-top: var(--nav-height);
+
+  transform: translateY(0);
+
+  text-align: left;
+}
+
+body.menuExpanded .logo,
+body.menuExpanded .closeButton {
+  position: relative;
+  z-index: 20;
+}
+
+body.menuExpanded .menu li {
+  border-bottom: 1px solid var(--border);
+  padding-left: 5rem;
+  padding-block: 1.5rem;
+
+  cursor: pointer;
+
+  position: relative;
+
+  display: flex;
+  align-items: flex-start;
+}
+
+body.menuExpanded .menu li::before {
+  content: '';
+  width: 1rem;
+  height: 0;
+
+  position: absolute;
+  left: 0;
+
+  transform: translateY(-1.5rem);
+
+  background-color: var(--button);
+  transition: height 300ms;
+}
+
+body.menuExpanded .menu li:hover::before {
+  height: 100%;
+}
+
+body.menuExpanded .menu li a {
+  color: var(--text-color-menu-mobile);
+
+  transition: color 300ms;
+}
+
+body.menuExpanded .menu li:hover a {
+  color: var(--text-color);
+}
+/* ------------------HOME---------------- */
+
+#home {
+  padding-top: calc(8rem + var(--nav-height));
+}
+
+#home h1 {
+  font-size: 3rem;
+  line-height: 4.1rem;
+
+  margin-bottom: 9rem;
+}
+
+#home button {
+  font-size: 1.1rem;
+  line-height: 1.5rem;
+
+  border: 1px solid var(--button);
+  border-radius: 0.3rem;
+
+  margin-bottom: 10rem;
+  padding: 1rem 3rem;
+
+  background-color: var(--background);
+  color: var(--text-color);
+  transition: background 400ms;
+  transition: font-size 200ms;
+
+  cursor: pointer;
+}
+
+#home button:hover {
+  background-color: hsl(257, 47%, 7%);
+  font-size: 1.3rem;
+
+  padding: 1.3rem 3.9rem;
+}
+
+#home h2 {
+  font-size: 5rem;
+  line-height: 6.8rem;
+  transition: font-size 300ms;
+}
+
+#home h2:hover {
+  font-size: 5.5rem;
+}
+
+#home h2 strong {
+  color: var(--background);
+  text-shadow: -1px -1px 0 var(--button), 1px -1px 0 var(--button),
+    -1px 1px 0 var(--button), 1px 1px 0 var(--button);
+}
+
+#home img {
+  width: 100%;
+  height: 33rem;
+}
+
+/* ----------MEDIA---------- */
+@media (min-width: 1024px) {
+  body {
+    overflow: auto;
+  }
+
+  nav {
+    border: none;
+  }
+
+  nav .logo {
+    position: fixed;
+    top: calc(var(--nav-height) / 2);
+    left: 15%;
+  }
+
+  #home h1,
+  .menuButton,
+  .closeButton {
+    display: none;
+  }
+
+  .menu,
+  .closeButton {
+    opacity: 100%;
+    visibility: visible;
+  }
+
+  .menu {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+
+    top: calc(var(--nav-height) / 2);
+
+    transform: translateX(33.3vw);
+  }
+
+  .menu li a {
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.9rem;
+  }
+
+  #home button {
+    position: fixed;
+    top: calc(var(--nav-height) / 2);
+    left: 70%;
+
+    margin: 0;
+  }
+
+  #home button:hover {
+    padding: 1rem 3rem;
+    font-size: 1.1rem;
+  }
+}

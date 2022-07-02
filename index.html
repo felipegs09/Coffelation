@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="pageStyle.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Coffelation</title>
+  </head>
+  <body class="">
+    <nav>
+      <a class="logo" href="#home">Coffelation</a>
+      <ul class="menu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Menu</a></li>
+        <li><a href="#">Recompensas</a></li>
+        <li><a href="#">Gift Cards</a></li>
+        <li><a href="#">Lojas</a></li>
+      </ul>
+      <a class="menuButton" onclick="openMenu()">
+        <svg
+          width="24"
+          height="8"
+          viewBox="0 0 24 8"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M24 0H0V2H24V0Z" fill="#8257E5" />
+          <path d="M24 6H8V8H24V6Z" fill="#8257E5" />
+        </svg>
+      </a>
+      <a class="closeButton" onclick="closeMenu()">
+        <svg
+          width="48"
+          height="48"
+          viewBox="0 0 48 48"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M32.4963 31.0872L16.9399 15.5309L15.5257 16.9451L31.0821 32.5014L32.4963 31.0872Z"
+            fill="#8257E5"
+          />
+          <path
+            d="M31.0822 15.5308L15.5259 31.0872L16.9401 32.5014L32.4964 16.945L31.0822 15.5308Z"
+            fill="#8257E5"
+          />
+        </svg>
+      </a>
+    </nav>
+    <div class="wrapper">
+      <section id="home">
+        <h1>O café que atravessou a estratosfera para chegar até você !!!</h1>
+        <button href="#">PEGAR MEU CAFÉ &gt;</button>
+        <h2>
+          Great Coffe<br />
+          <strong>&lt;Great Code&gt;</strong>
+        </h2>
+        <img src="./assets/rocket-coffee.png" alt="Copos de café" />
+      </section>
+    </div>
+  </body>
+  <script src="index.js"></script>
+</html>
